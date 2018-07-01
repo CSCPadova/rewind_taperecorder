@@ -7,7 +7,7 @@ function TapeRecorder(context) {
 	
 	// Speed and time variables
 	this.startTime = 0;
-	this.offset = 0;
+	this.offset = 0;				// Pos. of timer [sec]
 	this.originalSpeed = 0;
 	this.currentSpeed = 0;
 	this.originalSpeedState = 1;	// 0: 3.75
@@ -150,6 +150,7 @@ TapeRecorder.prototype.loadBuffers = function(){
 //--------------- Load Disk --------------------
 TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo, path_video) {
     goUp();
+
     this.currentBuffer = null;
 	this.currentReverseBuffer = null;
 	//if(this.state == 1){
@@ -160,6 +161,9 @@ TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo
 	// if track is playing => stop
 	if (this.state == 3 || this.state == 4 || this.state == 6) {
 		this.pause();
+		this.audioSource = null;
+		this.audioSource = this.context.createBufferSource();
+		
 	}
 	
 	if(flagVideo == 1){
@@ -259,6 +263,9 @@ TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo
 	// disable all commands
 	disableAllCommands();
 	// TODO buffering gif
+	
+	// TODO-ASK se è cosa non voluta
+	this.resetOffset = 0;
 };
 
 //Reset interface
@@ -324,7 +331,7 @@ TapeRecorder.prototype.play = function() {
 TapeRecorder.prototype.endOfTrack = function() {
 	var playbackTime = this.offset + (this.context.currentTime - this.startTime) 
 	* this.audioSource.playbackRate.value;
-	if(playbackTime >= this.audioSource.buffer.duration){
+	if(this.audioSource.buffer != null && playbackTime >= this.audioSource.buffer.duration){
 		this.offset = this.audioSource.buffer.duration;
 		this.state = 7;
 		stopReelRotation();
@@ -635,9 +642,12 @@ TapeRecorder.prototype.stopTimer = function(){
 };
 
 TapeRecorder.prototype.resetTimer = function(){
-	if(this.state != 6){
+	if(this.state == 3 || this.state == 4){
 		this.resetOffset = this.offset + (this.context.currentTime - 
 				this.startTime) * this.audioSource.playbackRate.value;
+	}else if(this.state == 2 || this.state == 5 || this.state == 7){
+		this.resetOffset = this.offset;
+		updateTimer(0);
 	}
 	else{
 		this.resetOffset = this.offset - (this.context.currentTime - 
