@@ -1,0 +1,385 @@
+@font-face {
+    font-family: 'digital_dreamregular';
+    src: url('DIGITALDREAM-webfont.eot');
+    src: url('DIGITALDREAM-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DIGITALDREAM-webfont.woff') format('woff'),
+         url('DIGITALDREAM-webfont.ttf') format('truetype'),
+         url('DIGITALDREAM-webfont.svg#digital_dreamregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	min-width: 960px;
+  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  	background-color: transparent;
+}
+
+.init{
+margin: 0px auto;
+    width: 898px;
+    height: 698px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: /*#1F1F1F;*/#000000;
+    background-image: url(../images/TP_init.png);
+    background-position-x: -2px;
+    background-position-y: -2px;
+}
+
+.loaded{
+	margin: 0 auto;
+    width: 898px;
+    height: 698px;
+ 	border-style:solid;
+	border-width: 10px;
+	border-color:/*#1F1F1F;*/#000000;
+	background-image: url('../images/TP_nastro.png');
+	background-position-x: -2px;
+    background-position-y: -2px;
+}
+
+/*REELS*/
+
+#reelsContainer{
+	display: inline-block;
+	width: 900px;
+	height: 400px;
+}
+
+#reels{
+	display: inline-block;
+	width: 600px;
+	height: 400px;
+}
+
+/*VIDEO*/
+
+#videoContainer{
+	display: inline-block;
+	
+	/*top: 44px;
+	position: relative;
+	left: 59px;*/
+}
+
+#video{
+	top: -90px;
+	width: 220px;
+	height: 180px;
+	position: relative;
+	left:12px;
+	poster: url('../images/logo.png');
+}
+
+
+/*TIME*/
+
+#time{
+	
+	
+	position: relative;
+	top:60px;
+}
+
+
+#timer {
+	width: 100px;
+	top: 11px;
+	left: 113px;
+	position: relative;
+	color: red;
+	font-size: 16px ;/*50px;*/
+	font-family: 'digital_dreamregular', Arial, sans-serif;
+}
+
+#resetTimer{
+	position: relative;
+	left: 110px;
+	top: 22px;
+	height: 31px;
+	width: 31px;
+	cursor: pointer;
+}
+
+.resetClick{
+	background-image: url('../images/reset.png');
+}
+
+#speed{
+	position: relative;
+	left: 301px;
+    top: 27px;
+	width: 28px;
+	height: 28px;
+	cursor: pointer;
+}
+
+.inLineBlock{
+	display: inline-block;
+}
+
+/* CONTROLS */
+
+.clickcontainer {
+	top: 78px;
+	left: 107px;
+	position: relative;
+	display: inline-block;
+}
+
+.click {
+	/*background-image: url('../images/rw.png');*/
+	display: inline-block;
+	width: 31px;
+	height: 48px;
+	cursor: pointer;
+}
+
+#rewind {
+	margin-left: 1px;
+}
+
+.rewindClick{
+	background-image: url('../images/rw.png');
+	position: relative;
+    left: -2.6px;
+    bottom: 4.3px;
+}
+
+#ffward {
+	margin-left: 0px;
+}
+
+.ffwardClick{
+	background-image: url('../images/ff.png');
+	position: relative;
+	left: -2px;
+    bottom: 4.4px;
+}
+
+#play {
+	margin-left: 1px;
+}
+
+.playClick{
+	background-image: url('../images/play.png');
+	position: relative;
+	left: -0.9px;
+    bottom: 4.7px;
+}
+
+#pause {
+	margin-left: 0px;
+}
+
+.stopClick{
+	background-image: url('../images/stop.png');
+	position: relative;
+	left: -1.2px;
+    bottom: 4.7px;
+}
+
+#eq{
+	position: relative;
+	left: 193px;
+    top: -6px;
+	width: 28px;
+	height: 28px;
+	cursor: pointer;
+}
+
+.posS3 {
+	-webkit-transform: rotate(50deg);
+	-ms-transform: rotate(50deg);
+	transform: rotate(50deg);
+}
+
+.posS2 {
+	-webkit-transform: rotate(20deg);
+	-ms-transform: rotate(20deg);
+	transform: rotate(20deg);
+}
+
+.posS1 {
+	-webkit-transform: rotate(340deg);
+	-ms-transform: rotate(340deg);
+	transform: rotate(340deg);
+}
+
+.posS0 {
+	-webkit-transform: rotate(310deg);
+	-ms-transform: rotate(310deg);
+	transform: rotate(310deg);
+}
+
+.posE1 {
+	-webkit-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+
+.posE0 {
+	-webkit-transform: rotate(40deg);
+	-ms-transform: rotate(40deg);
+	transform: rotate(40deg);
+}
+
+.posE2 {
+	-webkit-transform: rotate(320deg);
+	-ms-transform: rotate(320deg);
+	transform: rotate(320deg);
+}
+
+
+.knob {
+	width: 80px;
+	height: 80px;
+}
+
+#debug{
+	height: 20px;
+}
+
+/*Track loader*/
+#trackLoader{
+	/*position: absolute;
+	top: 1400px;
+	margin-left: 100px; */
+	
+	margin: 0 auto;
+	
+	margin-top: 50px;
+	width: 900px;
+	height: 50px;
+	
+}
+
+#songDBTitle{
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 920px;
+	height: 50px;
+	position: relative;
+	width: 920px;
+	height: 50px;
+	color: white;
+	background-color: black; 
+	font-variant: small-caps;
+	font-size: 30px;
+	padding: 0px;
+	cursor: pointer;
+	background-image: url("../images/goDownWhite.png");
+	background-repeat: no-repeat;
+	background-position-x: 862px;
+    background-position-y: 15px;
+	/*border: 10px black solid;*/
+}
+
+#loaderTitle{
+	width: 200px;
+	padding: 10px;
+}
+
+#db{
+	margin: 0 auto;
+	/*margin-top: 50px;*/
+	width: 900px;
+	
+	
+	position: relative;
+	border-bottom-color: black;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-left-color: black;
+	border-left-width: 2px;
+	border-left-style: solid;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+#track{
+	padding: 10px;
+}
+
+.trackLoaderContainer{
+	font-variant:small-caps;
+	text-align: center;
+	margin-left:10px;
+	width: 920px;
+	height: 100px;
+	/*border-bottom-width: 5px;
+	border-top-width:5px; /*5
+	border-left-width: 5px;
+	border-right-width: 5px;
+	border-color: black;
+	border-style: solid;*/
+	margin-bottom: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.firstRow{
+	height: 40px;
+	width: 880px;
+	/*border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-color: black;
+	border-style: solid;*/
+	
+}
+
+.firstR{
+	height: 40px;
+	float: right;
+	width: 735px;
+	line-height: 40px;
+	/*border-right-width: 0px;
+	border-color: black;
+	border-style: solid;*/
+	background-color: silver;
+	
+}
+
+div.trackLoaderButton{
+	width: 185px;
+	height: 40px;
+	background-color: black;
+	color:white;
+	cursor: pointer;
+	line-height: 40px;
+}
+
+div.trackLoaderButton:HOVER{
+	font-size: 120%;
+}
+
+tr.secondRow{
+	height: 30px;
+}
+
+tr.secondRow td{
+	width: 300px;
+	/*border-width:1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-color: black;
+	border-style: solid;*/
+	
+}
+
+tr.thirdRow{
+	height: 30px;
+}
+
+tr.thirdRow td{
+	width: 300px;
+	
+	/*border-width:1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-color: black;
+	border-style: solid;*/
+}
