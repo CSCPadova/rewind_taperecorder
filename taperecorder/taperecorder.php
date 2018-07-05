@@ -44,7 +44,7 @@ define("PHI_HREF_SRC", "./"); /**/
 			<div id="play" class="click"></div> 
 			<div id="pause" class="click"></div>
 			<a id="eq" class="knob">
-				<img id="knEq"  src="<?php echo PHI_HREF_SRC;?>images/knob.png" class="posE2" alt="Equalization selector knob"> <!--  class="pos1" -->
+				<img id="knEq"  src="<?php echo PHI_HREF_SRC;?>images/knob.png" class="posE0" alt="Equalization selector knob"> <!--  class="pos1" -->
 			</a>
 		</div>
 		

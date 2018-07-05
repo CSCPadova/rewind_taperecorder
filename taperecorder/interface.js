@@ -28,7 +28,7 @@ else{
 // -------------------------------- Animation ----------------------------------------------------
 
 var cssKnobSpeedClassName = new Array ("posS0", "posS1", "posS2", "posS3");
-var cssKnobEqClassName = new Array ("posE0", "posE1", "posE2");
+var cssKnobEqClassName = new Array ("posE0", "posE1", "posE2", "posE3", "posE4");
 // rotate knob figure
 function rotateKnob(knob, initialPosition){
 	jQuery(document).ready(function($){	
@@ -38,7 +38,7 @@ function rotateKnob(knob, initialPosition){
 		}
 		else{
 			$(knob).removeClass(cssKnobEqClassName[initialPosition]);
-			$(knob).addClass(cssKnobEqClassName[(initialPosition + 1) % 3]);
+			$(knob).addClass(cssKnobEqClassName[(initialPosition + 1) % 4]);
 		}
 	});
 };

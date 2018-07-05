@@ -213,22 +213,34 @@ margin: 0px auto;
 	transform: rotate(310deg);
 }
 
-.posE1 {
-	-webkit-transform: rotate(0deg);
-	-ms-transform: rotate(0deg);
-	transform: rotate(0deg);
+.posE0 {
+	-webkit-transform: rotate(50deg);
+	-ms-transform: rotate(50deg);
+	transform: rotate(50deg);
 }
 
-.posE0 {
-	-webkit-transform: rotate(40deg);
-	-ms-transform: rotate(40deg);
-	transform: rotate(40deg);
+.posE1 {
+	-webkit-transform: rotate(20deg);
+	-ms-transform: rotate(20deg);
+	transform: rotate(20deg);
 }
 
 .posE2 {
-	-webkit-transform: rotate(320deg);
-	-ms-transform: rotate(320deg);
-	transform: rotate(320deg);
+	-webkit-transform: rotate(340deg);
+	-ms-transform: rotate(340deg);
+	transform: rotate(340deg);
+}
+
+.posE3 {
+	-webkit-transform: rotate(310deg);
+	-ms-transform: rotate(310deg);
+	transform: rotate(310deg);
+}
+
+.posE4 {
+	-webkit-transform: rotate(280deg);
+	-ms-transform: rotate(280deg);
+	transform: rotate(280deg);
 }
 
 

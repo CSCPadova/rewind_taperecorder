@@ -28,10 +28,12 @@ function TapeRecorder(context) {
 						// 6: Rewind
 						// 7: Song finished
 	// Equalization variables
-	this.originalEqualizationState = 2;
-	this.currentEqualizationState = 2; 	// 0: ccir
+	this.originalEqualizationState = 0;
+	this.currentEqualizationState = 0; 	// 0: ccir
 										// 1: nab
-										// 2: flat
+										// 2: stable
+										// 3: approx
+										// 4: flat
 										
 	// Context and Nodes
 	this.context = context;
@@ -46,11 +48,13 @@ function TapeRecorder(context) {
 	// Buffers
 	this.impulseBuffers = new Array();
 	this.impulseBuffersPath = new Array(
-			this.impulseResponsesPath + "NAB_3.wav", 	// 0: NAB_3 - 3.75ips CCIR, NAB
-			this.impulseResponsesPath + "IEC1_7.wav",   // 1: IEC1_7 - 7.5ips CCIR
-			this.impulseResponsesPath + "IEC1_15.wav",  // 2: IEC1_15 - 15ips CCIR
-			this.impulseResponsesPath + "IEC2_15.wav",  // 3: IEC2_15 - 7.5, 15 NAB
-			this.impulseResponsesPath + "AES.wav"		// 4: AES - 30ips CCIR, NAB
+			this.impulseResponsesPath + "NAB_3.wav", 			// 0: NAB_3 - 3.75ips CCIR, NAB
+			this.impulseResponsesPath + "IEC1_7.wav",   		// 1: IEC1_7 - 7.5ips CCIR
+			this.impulseResponsesPath + "IEC1_15.wav",  		// 2: IEC1_15 - 15ips CCIR
+			this.impulseResponsesPath + "IEC2_15.wav",  		// 3: IEC2_15 - 7.5, 15 NAB
+			this.impulseResponsesPath + "AES.wav",				// 4: AES - 30ips CCIR, NAB
+			this.impulseResponsesPath + "CCIR_NAB_Stable.wav",	// 5: 
+			this.impulseResponsesPath + "NAB_CCIR_Appr.wav"		// 6: 
 			);
 
 	this.currentBuffer = null;
@@ -130,7 +134,7 @@ TapeRecorder.prototype.loadBuffers = function(){
 			buffer = null;
 			// enable all commands when all the buffers is loaded
 			that.ibuf++;
-			if (that.ibuf == 5) {
+			if (that.ibuf == 7) {
 				enableAllCommands();
 			}
 			else{
@@ -264,7 +268,7 @@ TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo
 	disableAllCommands();
 	// TODO buffering gif
 	
-	// TODO-ASK se è cosa non voluta
+	this.updateEqualization();
 	this.resetOffset = 0;
 };
 
@@ -366,18 +370,20 @@ TapeRecorder.prototype.connectSource = function() {
 	}
 	
 	// FLAT
-	if(this.originalEqualizationState == 2){
-		if(this.currentEqualizationState == 2){
+	//if(this.originalEqualizationState == 4){
+		if(this.currentEqualizationState == 4){
 			this.audioSource.connect(this.context.destination);
 			this.isAudioSourceConnected = true;
 		}
 		else{
-			this.audioSource.connect(this.convolutionNode);
-			this.convolutionNode.connect(this.context.destination);
-			this.isAudioSourceConnected = true;
-			this.isConvolutionNodeConnected = true;
+			if(this.audioSource != null){
+				this.audioSource.connect(this.convolutionNode);
+				this.convolutionNode.connect(this.context.destination);
+				this.isAudioSourceConnected = true;
+				this.isConvolutionNodeConnected = true;
+			}
 		}
-	}
+	//}
 };
 
 //--------------------------STOP-----------------------------------------------
@@ -571,8 +577,8 @@ TapeRecorder.prototype.nextSpeed = function() {
 
 //-----------------------Equalization-----------------------------
 TapeRecorder.prototype.updateEqualization = function(){
-	if(this.originalEqualizationState == 2){
-		if(this.currentEqualizationState != 2){
+	/*if(this.originalEqualizationState == 4){
+		if(this.currentEqualizationState != 4){*/
 			this.convolutionNode = this.context.createConvolver();
 			this.convolutionNode.normalize = false;
 			this.convolutionNode.buffer = this.impulseBuffers[getBufferIndex(
@@ -580,8 +586,8 @@ TapeRecorder.prototype.updateEqualization = function(){
 			console.log("Impulse Buffer" + getBufferIndex(this.currentEqualizationState,
 					this.currentSpeedState));
 			this.connectSource();
-		}		
-	}
+	/*	}		
+	}*/
 };
 
 // next Equalization
@@ -589,25 +595,25 @@ TapeRecorder.prototype.nextEq = function() {
 	var cssName = "#knEq";
 	rotateKnob(cssName, this.currentEqualizationState);
 	if(this.state!= 1){
-		if(this.originalEqualizationState == 2){
-			this.currentEqualizationState = (1 + this.currentEqualizationState) % 3;
-			if(this.currentEqualizationState != 2){
+		//if(this.originalEqualizationState == 4){
+			this.currentEqualizationState = (1 + this.currentEqualizationState) % 4;
+			//if(this.currentEqualizationState != 4){
 				this.convolutionNode = this.context.createConvolver();
 				this.convolutionNode.normalize = false;
 				this.convolutionNode.buffer = this.impulseBuffers[getBufferIndex(
 						this.currentEqualizationState, this.currentSpeedState)];	
-			}
+			/*}
 			else
 				this.convolutionNode.buffer = null;
-			
+			*/
 			console.log("Impulse Buffer" + getBufferIndex(this.currentEqualizationState,
 					this.currentSpeedState));
 			if(this.isAudioSourceConnected)
 				this.connectSource();
-		}
+		//}
 	}
 	else{
-		this.currentEqualizationState = (1 + this.currentEqualizationState) % 3;
+		this.currentEqualizationState = (1 + this.currentEqualizationState) % 4;
 	}
 };
 

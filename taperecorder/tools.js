@@ -26,17 +26,23 @@ function getEqualizationState(equalization){
 	var eqState = 0;
 	switch (eqUpper){
 	case "FLAT":
-		eqState = 2;
+		eqState = 4;
 		break;
-	case "CCIR":
-		eqState = 0;
+	case "APRX":
+		eqState = 3;
+		break;
+	case "STBL":
+		eqState = 2;
 		break;
 	case "NAB":
 		eqState = 1;
 		break;
+	case "CCIR":
+		eqState = 0;
+		break;
 	default: 
-		alert("Warning: wrong equalization. Default equalization = FLAT");
-		eqState = 2;
+		alert("Warning: wrong equalization. Default equalization = CCIR");
+		eqState = 0;
 		break;
 	}
 	return eqState;
@@ -97,18 +103,33 @@ function debugState(state){
 
 function getBufferIndex(equalization, speed){
 	switch(speed){
-	case 0: return 0;
+	case 0:
+		if(equalization == 2)
+			return 5;
+		if(equalization == 3)
+			return 6;
+		return 0;
 	case 1: 
 		if(equalization == 0)
 			return 1;
-		else
-			return 3;
+		if(equalization == 2)
+			return 5;
+		if(equalization == 3)
+			return 6;
+		return 3;
 	case 2:
 		if(equalization == 0)
 			return 2;
-		else
-			return 3;
+		if(equalization == 2)
+			return 5;
+		if(equalization == 3)
+			return 6;
+		return 3;
 	case 3:
+		if(equalization == 2)
+			return 5;
+		if(equalization == 3)
+			return 6;
 		return 4;
 	}
 };
