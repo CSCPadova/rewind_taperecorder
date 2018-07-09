@@ -22,7 +22,7 @@ margin: 0px auto;
     border-style: solid;
     border-width: 10px;
     border-color: /*#1F1F1F;*/#000000;
-    background-image: url(../images/TP_init.png);
+    background-image: url(../images/TP_init_new.png);
     background-position-x: -2px;
     background-position-y: -2px;
 }
@@ -34,7 +34,7 @@ margin: 0px auto;
  	border-style:solid;
 	border-width: 10px;
 	border-color:/*#1F1F1F;*/#000000;
-	background-image: url('../images/TP_nastro.png');
+	background-image: url('../images/TP_nastro_new.png');
 	background-position-x: -2px;
     background-position-y: -2px;
 }
@@ -108,7 +108,7 @@ margin: 0px auto;
 
 #speed{
 	position: relative;
-	left: 301px;
+	left: 302px;
     top: 27px;
 	width: 28px;
 	height: 28px;
@@ -182,8 +182,8 @@ margin: 0px auto;
 
 #eq{
 	position: relative;
-	left: 193px;
-    top: -6px;
+	left: 194px;
+    top: -9px;
 	width: 28px;
 	height: 28px;
 	cursor: pointer;
