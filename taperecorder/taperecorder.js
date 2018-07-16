@@ -204,12 +204,7 @@ TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo
 	this.resetInterface(speedTemp, this.currentSpeedState, eqTemp,
 			this.currentEqualizationState);
     jQuery(document).ready(function($){
-        if($.browser == "mozilla")
-            completePath = completePath + path + ".ogg";
-        //request.open("GET",  + path + ".ogg", true);
-	    else
-            completePath = completePath + path + ".mp3";
-        //request.open("GET",  + path + ".mp3", true);
+        completePath = completePath + path;
     });
 	// set path => gestire i browser con mp3 ed ogg
 	 // this.C_PATH +
