@@ -104,32 +104,18 @@ function debugState(state){
 function getBufferIndex(equalization, speed){
 	switch(speed){
 	case 0:
-		if(equalization == 2)
-			return 5;
-		if(equalization == 3)
-			return 6;
-		return 0;
+		return -1;
 	case 1: 
 		if(equalization == 0)
+			return 0;
+		if(equalization == 1)
 			return 1;
-		if(equalization == 2)
-			return 5;
-		if(equalization == 3)
-			return 6;
-		return 3;
 	case 2:
 		if(equalization == 0)
-			return 2;
-		if(equalization == 2)
-			return 5;
-		if(equalization == 3)
-			return 6;
-		return 3;
+			return 0;
+		if(equalization == 1)
+			return 1;
 	case 3:
-		if(equalization == 2)
-			return 5;
-		if(equalization == 3)
-			return 6;
-		return 4;
+		return -1;
 	}
 };

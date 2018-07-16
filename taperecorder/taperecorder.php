@@ -45,7 +45,7 @@ define("PHI_HREF_SRC", "./"); /**/
 			<div id="play" class="click"></div> 
 			<div id="pause" class="click"></div>
 			<a id="eq" class="knob">
-				<img id="knEq"  src="<?php echo PHI_HREF_SRC;?>images/knob.png" class="posE0" alt="Equalization selector knob"> <!--  class="pos1" -->
+				<img id="knEq"  src="<?php echo PHI_HREF_SRC;?>images/knob.png" class="posE1" alt="Equalization selector knob"> <!--  class="pos1" -->
 			</a>
 		</div>
 		
@@ -191,7 +191,7 @@ define("PHI_HREF_SRC", "./"); /**/
 							<tr><th>Equalization<td>
 							<select id="singleeq" name="eqselect" class="td100">
 							  <option value="ccir">CCIR</option>
-							  <option value="ccir">NAB</option>
+							  <option value="nab">NAB</option>
 							</select></tr>
 							<tr><th>Select Audio Track (mp3,flac,wav):<td><input type="file" class="input-file-audio" name="singleimportaudio" id="singleimportaudio" required></tr>
 							<tr><th>Select Video Track (mp4, webm):<td><input type="file" class="input-file-video" name="singleimportvideo" id="singleimportvideo"></tr>
