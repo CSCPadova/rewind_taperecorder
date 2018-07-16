@@ -154,7 +154,8 @@ TapeRecorder.prototype.loadBuffers = function(){
 //--------------- Load Disk --------------------
 TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo, path_video) {
     goUp();
-
+	var upl=document.getElementById("upan");
+	upl.style.display = "block";
     this.currentBuffer = null;
 	this.currentReverseBuffer = null;
 	//if(this.state == 1){
@@ -209,11 +210,11 @@ TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo
 	this.resetInterface(speedTemp, this.currentSpeedState, eqTemp,
 			this.currentEqualizationState);
     jQuery(document).ready(function($){
-        if($.browser == "mozilla")
-            completePath = completePath + path + ".ogg";
+        //if($.browser == "mozilla")
+        //    completePath = completePath + path + ".ogg";
         //request.open("GET",  + path + ".ogg", true);
-	    else
-            completePath = completePath + path + ".mp3";
+	    //else
+            completePath = completePath + path;
         //request.open("GET",  + path + ".mp3", true);
     });
 	// set path => gestire i browser con mp3 ed ogg
@@ -236,7 +237,10 @@ TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo
 				return;
 			}
 			//alert("Brano Caricato!!");
-            
+            var upl=document.getElementById("upan");
+			upl.style.display = "none";
+			
+			
 			that.currentBuffer = null;
 			// save the buffer
 			that.currentBuffer = buffer;

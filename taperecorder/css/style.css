@@ -11,7 +11,6 @@
 
 body{
 	min-width: 960px;
-  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   	background-color: transparent;
 }
 
@@ -313,6 +312,7 @@ margin: 0px auto;
 
 #track{
 	padding: 10px;
+	position:relative;
 }
 
 .trackLoaderContainer{
@@ -320,7 +320,7 @@ margin: 0px auto;
 	text-align: center;
 	margin-left:10px;
 	width: 920px;
-	height: 100px;
+	height: 155px;
 	/*border-bottom-width: 5px;
 	border-top-width:5px; /*5
 	border-left-width: 5px;
@@ -346,7 +346,7 @@ margin: 0px auto;
 .firstR{
 	height: 40px;
 	float: right;
-	width: 735px;
+	width:550px;
 	line-height: 40px;
 	/*border-right-width: 0px;
 	border-color: black;
@@ -355,18 +355,99 @@ margin: 0px auto;
 	
 }
 
+div.errorLoader{
+	width: 290px;
+	height: 40px;
+	background-color: #990000;
+	color:white;
+	line-height: 40px;
+}
+
+div.delaudio{
+	margin-top:5px;
+	margin-right:15px;
+	width: 105px;
+	height: 30px;
+	background-color: rgba(120,0,0,0.9);
+	line-height:30px;
+	color:white;
+	cursor: pointer;
+	float:right;
+	border-radius:2px;
+}
+
+div.delvideo{
+	margin-top:5px;
+	margin-right:15px;
+	width: 105px;
+	height: 30px;
+	background-color: rgba(120,0,0,0.9);
+	line-height:30px;
+	color:white;
+	cursor: pointer;
+	float:right;
+	border-radius:2px;
+	
+}
+
+div.delrow{
+	width: 40px;
+	height: 40px;
+	background-color: silver;
+	background-image: url("../images/bin.png");
+	background-repeat: no-repeat;
+    background-size: 40px 40px;
+	color:white;
+	cursor: pointer;
+	line-height: 40px;
+	float:right;
+}
+
 div.trackLoaderButton{
-	width: 185px;
+	width: 290px;
 	height: 40px;
 	background-color: black;
 	color:white;
 	cursor: pointer;
 	line-height: 40px;
+	float:left;
 }
 
 div.trackLoaderButton:HOVER{
 	font-size: 120%;
 }
+
+
+.audiovideo{
+	height: 50px;
+	width: 880px;
+}
+
+.audio{	
+	padding-top:5px;
+	padding-bottom:5px;
+	width:440px;
+	height: 45px;
+	float:left;
+	background-color:#efefef;
+}
+
+
+.video{
+	padding-top:5px;
+	padding-bottom:5px;
+	width:440px;
+	height: 45px;
+	float:right;
+	background-color:#efefef;
+}
+
+.filedesc{
+	width:300px;
+	float:left;
+	line-height:50px;
+}
+
 
 tr.secondRow{
 	height: 30px;
@@ -394,4 +475,248 @@ tr.thirdRow td{
 	border-bottom-width: 1px;
 	border-color: black;
 	border-style: solid;*/
+}
+
+/*import export*/
+#importTitle{
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 920px;
+	height: 50px;
+	position: relative;
+	width: 920px;
+	height: 50px;
+	color: white;
+	background-color: black; 
+	font-variant: small-caps;
+	font-size: 30px;
+	padding: 0px;
+	cursor: pointer;
+	background-image: url("../images/goDownWhite.png");
+	background-repeat: no-repeat;
+	background-position-x: 862px;
+    background-position-y: 15px;
+	/*border: 10px black solid;*/
+}
+#importTitleLabel{
+	width: 400px;
+	padding: 10px;
+}
+#importContent{
+    margin: 0 auto;
+    width: 900px;
+    position: relative;
+    border-bottom-color: black;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-left-color: black;
+    border-left-width: 2px;
+    border-left-style: solid;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+}
+#singleTabTitle{
+	width: 890px;
+	height: 40px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 5px;
+	cursor: pointer;
+	color: black;
+	background-color: white;
+	background-repeat: no-repeat;
+	font-variant: small-caps;
+	font-size: 15px;
+}
+
+#singleTabContent{
+	width: 890px;
+	display: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#jsonTabTitle{
+	width: 890px;
+	height: 40px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 5px;
+	cursor: pointer;
+	color: black;
+	background-color: white;
+	background-repeat: no-repeat;
+	font-variant: small-caps;
+	font-size: 15px;
+}
+#jsonTabContent{
+	width: 890px;
+	display: none;
+	text-align:center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.openSubPart {
+    margin-top: 15px;
+    margin-left: 840px;
+    width: 37px;
+    height: 20px;
+    background-image: url("../images/goDownBlack.png");
+}
+
+.titleSubMenuDiv {
+    margin-top: 10px;
+    margin-left: 15px;
+    float: left;
+}
+
+.td100 {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#singleTable{
+	margin:auto;
+	margin-top:15px;
+}
+
+#exportjson{
+	font-variant:small-caps;
+	background-color: black;
+	color:white;
+	cursor: pointer;
+	line-height: 40px;
+}
+
+#exportjson:HOVER{
+	font-size: 90%;
+}
+
+
+#resetdb{
+	font-variant:small-caps;
+	background-color: black;
+	color:white;
+	cursor: pointer;
+	line-height: 40px;
+}
+
+#resetdb:HOVER{
+	font-size: 90%;
+}
+
+#exportfiles{
+	font-variant:small-caps;
+	background-color: black;
+	color:white;
+	cursor: pointer;
+	line-height: 40px;
+}
+
+#exportfiles:HOVER{
+	font-size: 90%;
+}
+
+#singlesubmit{
+	font-variant:small-caps;
+	background-color: black;
+	color:white;
+	cursor: pointer;
+	line-height: 40px;
+}
+
+#singlesubmit:HOVER{
+	font-size: 90%;
+}
+
+#uploadjson{
+	font-variant:small-caps;
+	background-color: black;
+	color:white;
+	line-height: 40px;
+	
+}
+
+#jsonbutton{
+	font-variant:small-caps;
+	background-color: silver;
+	color:black;
+	cursor: pointer;
+	line-height: 40px;
+	width:100%;
+}
+
+#jsonbutton:HOVER{
+	font-size: 90%;
+}
+.jsontd{
+	text-align:center;
+}
+
+.formtable{
+	text-align: left;
+}
+
+.importexportdiv{
+	width:80%;
+	margin:auto;
+	margin-top:20px;
+}
+
+.w100{
+	width:100%;
+	margin:0;
+	padding:0;
+}
+#upan {
+	display:none;
+    background-color: rgba(255,255,255,0.6);
+	text-align:center;
+    width: 898px;
+    height: 698px;
+}
+#uploading {
+	position:relative;
+	top:200px;
+	left:300px;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    background-image: url("../images/bobina.png");
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+	-webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+#uploadingText {
+	position:relative;
+	font-size:200%;
+	top:250px;
+	left:300px;
+    text-align: center;
+    width: 300px;
+	font-variant:small-caps;
+	background-color:rgba(0,0,0,0.8);
+	color:white;
+	border-radius:5px;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+#notracks{
+	text-align:center;
+	display:none;
 }

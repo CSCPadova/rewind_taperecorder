@@ -1,6 +1,9 @@
 // Global variable
 var anim = null;
 var isLoaderOpen = false;
+var isImportOpen=false;
+var isSingleOpen=false;
+var isJsonOpen=false;
 // Reel rotation speed (initial value set to zero)
 var angularSpeed = 0;
 var intervalRewind;
@@ -201,7 +204,7 @@ function openLoader(){
 				}
 						);
 						*/
-			$('#db').slideUp(1000);
+			$('#db').slideUp(500);
 			
 			isLoaderOpen = false;
 			$title.css("background-image", "url(\"./images/goDownWhite.png\")");
@@ -218,7 +221,7 @@ function openLoader(){
 				
 			});
 			*/
-			$('#db').slideDown(1000);
+			$('#db').slideDown(500);
 			
 			isLoaderOpen = true;
 			$title.css("background-image", "url(\"./images/goUpWhite.png\")");
@@ -226,6 +229,75 @@ function openLoader(){
 	});
 	
 };
+
+function openImport(){
+	jQuery(document).ready(function($){
+		$title = $("#importTitle");
+		//  close the tab
+		if (isImportOpen){
+
+			$('#importContent').slideUp(500);
+			
+			isImportOpen = false;
+			$title.css("background-image", "url(\"./images/goDownWhite.png\")");
+		}
+		// open the tab
+		else{
+			$('#importContent').slideDown(500);
+			
+			isImportOpen = true;
+			$title.css("background-image", "url(\"./images/goUpWhite.png\")");
+		}
+	});
+	
+};
+
+function openSingle(){
+	jQuery(document).ready(function($){
+		$title = $("#singlearrow");
+		//  close the tab
+		if (isSingleOpen){
+
+			$('#singleTabContent').slideUp(500);
+			
+			isSingleOpen = false;
+			$title.css("background-image", "url(\"./images/goDownBlack.png\")");
+		}
+		// open the tab
+		else{
+			$('#singleTabContent').slideDown(500);
+			
+			isSingleOpen = true;
+			$title.css("background-image", "url(\"./images/goUpBlack.png\")");
+		}
+	});
+	
+};
+
+function openJson(){
+	jQuery(document).ready(function($){
+		$title = $("#jsonarrow");
+		//  close the tab
+		if (isJsonOpen){
+
+			$('#jsonTabContent').slideUp(500);
+			
+			isJsonOpen = false;
+			$title.css("background-image", "url(\"./images/goDownBlack.png\")");
+		}
+		// open the tab
+		else{
+			$('#jsonTabContent').slideDown(500);
+			
+			isJsonOpen = true;
+			$title.css("background-image", "url(\"./images/goUpBlack.png\")");
+		}
+	});
+	
+};
+
+
+
 
 function loadTape(){
 	jQuery(document).ready(function($){
@@ -420,9 +492,9 @@ function loadVideo(path){
 	jQuery(document).ready(function($){
 		$('#videoContainer').html(
 				"<video id='video' preload muted >" + 
-					"<source src='"+ path +".mp4' type='video/mp4'></source>" + 
-					"<source src='"+ path +".webm' type='video/webm'></source>" +
-					"<source src='"+ path +".ogv' type='video/ogv'></source>" +
+					"<source src='"+ path +"' type='video/mp4'></source>" + 
+					"<source src='"+ path +"' type='video/webm'></source>" +
+					"<source src='"+ path +"' type='video/ogv'></source>" +
 				"</video>"
 				);
 	});
