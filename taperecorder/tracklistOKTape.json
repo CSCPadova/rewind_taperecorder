@@ -1,0 +1,63 @@
+
+[
+    {
+        "path_audio": "BERIO001.mp3",
+        "path_video": "BERIO001.mp4",
+        "title": "Berio Tape 001",
+        "author": "Luciano Berio",
+        "year": 1960,
+        "speed": 15,
+        "equalization": "ccir",
+        "video": "1"
+    },
+    {
+        "path_audio": "BERIO002.mp3",
+        "path_video": "BERIO002.webm",
+        "title": "Berio Tape 002",
+        "author": "Luciano Berio",
+        "year": 1961,
+        "speed": 7.5,
+        "equalization": "ccir",
+        "video": "1"
+    },
+    {
+        "path_audio": "BERIO003.mp3",
+        "path_video": "BERIO003.webm",
+        "title": "Berio Tape 003",
+        "author": "Luciano Berio",
+        "year": 1962,
+        "speed": 7.5,
+        "equalization": "ccir",
+        "video": "1"
+    },
+    {
+        "path_audio": "BERIO004.mp3",
+        "path_video": "BERIO004.mp4",
+        "title": "Berio Tape 004",
+        "author": "Luciano Berio",
+        "year": 1963,
+        "speed": 15,
+        "equalization": "ccir",
+        "video": "1"
+    },
+    {
+        "path_audio": "BERIO005.mp3",
+        "path_video": "BERIO005.mp4",
+        "title": "Berio Tape 005",
+        "author": "Luciano Berio",
+        "year": 1964,
+        "speed": 15,
+        "equalization": "nab",
+        "video": "1"
+    },
+    {
+        "path_audio": "BERIO056.mp3",
+        "path_video": "BERIO056.webm",
+        "title": "Berio Tape 056",
+        "author": "Luciano Berio",
+        "year": 1970,
+        "speed": 7.5,
+        "equalization": "nab",
+        "video": "1"
+    }
+]

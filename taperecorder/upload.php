@@ -353,11 +353,11 @@
 					//$myObj->id_vinyl = $r_results['id_vinyl'];
 					$myObj->path_audio = stripslashes (basename($r_results['path_audio']));
 					$myObj->path_video = stripslashes (basename($r_results['path_video']));
-					$myObj->titolo = stripslashes ($r_results['titolo']);
-					$myObj->artista = $r_results['artista'];
-					$myObj->data = $r_results['data'];
-					$myObj->velocita = $r_results['velocita'];
-					$myObj->equalizzazione = $r_results['equalizzazione'];
+					$myObj->title = stripslashes ($r_results['titolo']);
+					$myObj->author = $r_results['artista'];
+					$myObj->year = $r_results['data'];
+					$myObj->speed = $r_results['velocita'];
+					$myObj->equalization = $r_results['equalizzazione'];
 					$myObj->video = stripslashes (basename($r_results['video']));
 					array_push($tracks,$myObj);	 
 				}

@@ -100,8 +100,8 @@
 						$note=$note."(missing video file)<br>";
 					}
 					
-					if(!empty($track->titolo)){
-						$title=$track->titolo;
+					if(!empty($track->title)){
+						$title=$track->title;
 						echo("<td>".$title."</td>");
 					}
 					else{
@@ -109,8 +109,8 @@
 						$note=$note."missing title<br>";
 						$upload=0;
 					}
-					if(!empty($track->artista)){
-						$author=$track->artista;
+					if(!empty($track->author)){
+						$author=$track->author;
 						echo("<td>".$author."</td>");
 					}
 					else{
@@ -118,7 +118,7 @@
 						$note=$note."missing author<br>";
 						$upload=0;
 					}
-					if (!empty($track->titolo)&&!empty($track->artista)){
+					if (!empty($track->title)&&!empty($track->author)){
 						$titlemod=str_replace("'", "\''", $title);
 						$q="select * from phi_tape where titolo='".$titlemod."' and artista='".$author."'";
 						//echo ($q);
@@ -129,8 +129,8 @@
 							$note=$note.$title." by ".$author." is already present in the database<br>";
 						}
 					}
-					if(!empty($track->data)){
-						$year=$track->data;
+					if(!empty($track->year)){
+						$year=$track->year;
 						echo("<td>".$year."</td>");
 					}
 					else{
@@ -138,8 +138,8 @@
 						$note=$note."missing year<br>";
 						$upload=0;
 					}
-					if(!empty($track->velocita)){
-						$speed=$track->velocita;
+					if(!empty($track->speed)){
+						$speed=$track->speed;
 						echo("<td>".$speed."</td>");
 					}
 					else{
@@ -147,8 +147,8 @@
 						$note=$note."missing speed<br>";
 						$upload=0;
 					}
-					if(!empty($track->equalizzazione)){
-						$eq=$track->equalizzazione;
+					if(!empty($track->equalization)){
+						$eq=$track->equalization;
 						echo("<td>".$eq."</td>");
 					}
 					else{

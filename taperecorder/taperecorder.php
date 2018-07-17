@@ -21,7 +21,7 @@ define("PHI_HREF_SRC", "./"); /**/
 <body>
 
 	<div id="magn" class = "init">
-	<div id="upan"><div id="uploading"></div><div id="uploadingText">Uploading...</div></div>
+	<div id="upan"><div id="uploading"></div><div id="uploadingText">Buffering...</div></div>
 		 <div id = "reelsContainer">
 		 	<div id="reels"></div>
 		 	<div id= "videoContainer"></div>

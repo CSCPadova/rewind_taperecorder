@@ -605,6 +605,7 @@ document.getElementById("singleform").addEventListener('submit', function(event)
 					trackcount=trackcount+1;
 					//alert(trackcount);
 				}
+				videofileSelect.value="";
 			} else if(xhr.status === 415){
 				alert('Please insert only allowed input formats');
 			} else if(xhr.status === 409){
@@ -835,8 +836,13 @@ document.getElementById("resetdb").addEventListener('click', function(event) {
 	xhr.open('POST', "upload.php", true);
 	xhr.onload = function () {
 			if (xhr.status === 200) {
+				trackcount=0;
 				document.getElementById("track").innerHTML="";
-				document.getElementById('notracks').style.display = "block";
+				var empty=document.createElement("div");
+				empty.setAttribute("id","notracks");
+				empty.style.display = "block";
+				empty.appendChild(document.createTextNode(" Tracklist is empty "));
+				document.getElementById("track").appendChild(empty);
 			}
 			else if(xhr.status === 453){
 				alert('Error in resetting the database');
