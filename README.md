@@ -2,8 +2,8 @@
 
 ## Description
 
-This repository contains the source code of a web application that simulates a tape recorder using the Web Audio API.
-The project has also been developed using web technologies such as: PHP, HTML5, CSS3 and jQuery.
+This repository contains the source code of a web application that virtualizes an reel-to-reel tape recorder using the Web Audio API.
+The project also uses web technologies such as: PHP, HTML5, CSS3 and jQuery.
 This project provides the following features:
 
 *  **Audio playback**:  you can play a track simply with the tape recorder interface, you just need to load the tape from the track loader and play it by clicking on the play button;
@@ -41,11 +41,16 @@ Where:
 
 
 ## Credits
-The author of this project is [*Niccolò Pretto*](http://www.dei.unipd.it/~prettoni/).
-The contributors of this project are:
+This is the second version of the software developed by [*Niccolò Pretto*](http://www.dei.unipd.it/~prettoni/) under the supervision of Sergio Canazza [1]. 
+
+In this new version, several features are implemented. The developers who partecipate to this update (under the supervision of [*Niccolò Pretto*](http://www.dei.unipd.it/~prettoni/)) are: 
 * _Riccardo Galiazzo_
 * _Fabio Giachelle_
 * _Luca Piazzon_
 
 The repository includes snippets of code and algorithms from the following repositories:
 * **getID3**: https://github.com/JamesHeinrich/getID3
+
+## References
+
+[1] C. Fantozzi, F. Bressan, N. Pretto, and S. Canazza. "Tape music archives: from preservation to access". *International Journal on Digital Libraries*, 18(3):233–249, September 2017. ISSN 1432-1300. doi: 10.1007/s00799-017-0208-8.
