@@ -1,5 +1,9 @@
 # REWIND - Tape recorder
 
+<p align="center">
+  <img height="300" src="img/taperecorder.jpg">
+</p>
+
 ## Description
 
 This repository contains the source code of a web application that virtualizes an reel-to-reel tape recorder using the Web Audio API.
