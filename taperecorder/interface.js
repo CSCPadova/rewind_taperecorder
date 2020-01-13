@@ -1,5 +1,6 @@
 // Global variable
 var anim = null;
+var isWaveFormOpen = false;
 var isLoaderOpen = false;
 var isImportOpen=false;
 var isSingleOpen=false;
@@ -189,6 +190,26 @@ function rewindVideo(rate){
 	                }, (100)); 
 };
 
+function openWaveForm(){
+	jQuery(document).ready(function($){
+		$title = $("#waveFormTitle");
+		//  close the tab
+		if (isWaveFormOpen){
+
+			$('#waveFormMenu').slideUp(500);
+			
+			isWaveFormOpen = false;
+			$title.css("background-image", "url(\"./images/goDownWhite.png\")");
+		}
+		// open the tab
+		else{
+			$('#waveFormMenu').slideDown(500);
+			
+			isWaveFormOpen = true;
+			$title.css("background-image", "url(\"./images/goUpWhite.png\")");
+		}
+	});
+};
 
 function openLoader(){
 	jQuery(document).ready(function($){

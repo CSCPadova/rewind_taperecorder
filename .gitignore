@@ -1,0 +1,6 @@
+.vscode
+*.mp3
+*.flac
+*.wav
+.DS_Store
+*.mp4

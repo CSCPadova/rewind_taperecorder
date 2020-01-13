@@ -56,8 +56,8 @@ define("PHI_HREF_SRC", "./"); /**/
 <!-- 	<div id="trackLoader">  -->
 	
 <!-- DB song  -->
-		<div id="songDBTitle"  onclick="openLoader()">
-			<div id = "loaderTitle">Track Loader</div>
+		<div id="songDBTitle" class="menuBar"  onclick="openLoader()">
+			<div id = "loaderTitle" class="menuTitle">Track Loader</div>
 			<!--<div id = "openDB" class = "openPart" ></div>  class = "menuPart"-->
 		</div>
 
@@ -165,8 +165,8 @@ define("PHI_HREF_SRC", "./"); /**/
 			</div>
 		</div>
 		
-		<div id="importTitle"  onclick="openImport()">
-			<div id = "importTitleLabel">Upload/Download Area</div>
+		<div id="importTitle" class="menuBar"  onclick="openImport()">
+			<div id = "importTitleLabel" class="menuTitle">Upload/Download Area</div>
 		</div>
 
 		<div id="importContent" style = "display: none;">
@@ -251,5 +251,8 @@ define("PHI_HREF_SRC", "./"); /**/
 		</script>
 		<script type = "text/javascript" src = "./js/upload.js"></script>
 		<div id="debug"></div>
+		<script type = "text/javascript" src="./js/peaks.js"></script>
+		<script type = "text/javascript" src="./js/waveform-data.min.js"></script>
+		<script type = "text/javascript" src="./js/waveform.js"></script>
 </body>
 <!-- </html>  -->

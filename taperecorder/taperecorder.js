@@ -245,6 +245,11 @@ TapeRecorder.prototype.loadTrack = function(path, speed, equalization, flagVideo
 			// enable all commands
 			enableAllCommands();
 
+			// from waveform.js
+			if (that.waveform) {
+				that.setWaveFormBuffer(that.currentBuffer);
+			}
+
 			// TODO stop buffering gif
 		}, function(error) {
 			alert('decodeAudioData error', error);
@@ -319,6 +324,12 @@ TapeRecorder.prototype.play = function() {
 		playVideo((this.offset) % this.audioSource.buffer.duration);
 		changeVideoSpeed(this.audioSource.playbackRate.value);
 	}
+
+	// from waveform.js
+	if (this.waveform) {
+		this.startWaveForm(this.offset);
+	}
+
 	// start timer
 	this.startTimer();
 	this.isAudioSourceConnected = true;
@@ -326,8 +337,26 @@ TapeRecorder.prototype.play = function() {
 
 //Track is Finished
 TapeRecorder.prototype.endOfTrack = function() {
-	var playbackTime = this.offset + (this.context.currentTime - this.startTime) 
-	* this.audioSource.playbackRate.value;
+	/**
+	 * Bug fixed.
+	 * 
+	 * Detail:
+	 * 
+	 * originally var playbackTime = 
+	 * this.offset + (this.context.currentTime - this.startTime) * this.audioSource.playbackRate.value;
+	 * 
+	 * During the fast forwarding, when the user clicks on STOP, this value is double-calculated, since 
+	 * we have already called updateOffset(0) under pause() method. This will prematurely end the track
+	 * before reaching it's end, in this case this.offset is already the REAL offset of the track.
+	 * 
+	 * daohong
+	 */
+	if(this.state != 5) {
+		// if not stopped with STOP button.
+		this.updateOffset(0);
+	}
+
+	var playbackTime = this.offset; 
 	if(this.audioSource.buffer != null && playbackTime >= this.audioSource.buffer.duration){
 		this.offset = this.audioSource.buffer.duration;
 		this.state = 7;
@@ -413,6 +442,11 @@ TapeRecorder.prototype.pause = function() {
 			stopVideo();
 		stopReelRotation();
 	}
+
+	// from waveform.js
+	if (this.waveform) {
+		this.stopWaveForm();
+	}
 };
 
 //------------------------Rewind----------------------------
@@ -453,13 +487,29 @@ TapeRecorder.prototype.rewind = function() {
 			rewindVideo(this.audioSource.playbackRate.value);
 		}
 		this.state = 6;
+
+		// from waveform.js
+		if (this.waveform) {
+			this.startWaveForm(this.offset)
+		}
 	}
 };
 
 TapeRecorder.prototype.endOfReverseTrack = function(){
-	var playbackTime = this.offset - (this.context.currentTime - this.startTime) 
-	* this.audioSource.playbackRate.value;
-	if(playbackTime <= 0){
+	/**
+	 * Bug fixed.
+	 * 
+	 * Same as endOfTrack(); 
+	 * 
+	 * daohong
+	 */
+	if(this.state != 5) {
+		// if not stopped with STOP button.
+		this.updateOffset(1);
+	}
+	var playbackTime = this.offset;
+	console.log(playbackTime)
+	if(playbackTime < 0.2){
 		this.offset = 0;
 		this.state = 2;
 		stopReelRotation();
@@ -470,7 +520,7 @@ TapeRecorder.prototype.endOfReverseTrack = function(){
 		// TODO ?? update to zero the video?? 
 		updateTimer(0 - this.resetOffset / this.currentPlaybackRate);
 	}
-	//console.log("State = " + this.state);
+	console.log("State = " + this.state);
 };
 
 //---------------------Fast Forward--------------------------
@@ -514,6 +564,11 @@ TapeRecorder.prototype.fastForward = function() {
 		this.state = 4;
 		
 		console.log("ff function finish");
+
+		// from waveform.js
+		if (this.waveform) {
+			this.startWaveForm(this.offset)
+		}
 	}
 };
 
@@ -554,6 +609,10 @@ TapeRecorder.prototype.nextSpeed = function() {
 		* tempPlaybackRate;
 		this.startTime = this.context.currentTime;
 		
+		// from waveform.js
+		if (this.waveform) {
+			this.startWaveForm(this.offset);
+		}
 		// update playback and reels rotation
 		this.audioSource.playbackRate.value = this.currentPlaybackRate;
 		changeReelRotation(this.currentSpeed);
@@ -670,5 +729,10 @@ TapeRecorder.prototype.updateOffset = function(type){
 	else if (type == 1){
 		this.offset -= (this.context.currentTime - this.startTime)
 		* this.audioSource.playbackRate.value;
+	}
+
+	// from waveform.js
+	if(this.waveform) {
+		this.setWaveFormHead(this.offset);
 	}
 };
