@@ -24,26 +24,37 @@ This project provides the following features:
 * **Waveform visualization**: during the playback of a track, it is also possible to visualize the waveform of the audio; the waveform equips a header which tells you the position of the current playback;
 
 ## Installation
-All the project files are in the "taperecorder" folder. In order to install correctly the taperecorder project and use it, you need to put the "taperecorder" folder in any directory you prefer of the chosen web server (e.g.  if you use XAMPP (Apache) you need to put the "taperecorder" folder in any subdirectory of "htdocs" directory, that under Windows is in general located at this path: "C:\xampp\htdocs\").
+All the project files are in the "taperecorder" folder.
 
-Finally you need to control the PHP configuration in your "php.ini" file. In particular you need to:
-* Enable SQLite extension (since the project uses it as DBMS), you can do this by decommenting the following two lines:
-    * ```extension=php_sqlite3.dll```
-    *  ```extension=php_pdo_sqlite.dll```
-* Enable the upload file extension by setting "file_uploads" flag to "On" and the "upload_max_filesize" to the chosen upper bound as follows:
-    * ```file_uploads=On ```
-    * ```upload_max_filesize=XXXM``` (where "XXX" it's the max size for a file in upload, expressed in MB)
-    * ```post_max_size=XXXM``` (where "XXX" it's the max size for a file in POST upload, expressed in MB)
+It is recommended to use a docker, you can find the `DockFile` under the `docker` folder.
+
+To build a docker image, go inside the docker folder.
+
+`$cd docker`
+
+Build the image by typing
+
+`$docker build -t [TAG] .`
+
+You need to specify a tag name which identifies the image.
+
+If you want to change the php configuration, you need to edit the `php.ini` inside the docker folder and rebuild the image.
 
 ## Usage
-As first step, run your web server (e.g. Apache).
+
+Go to the root folder of the project i.e. ~/PATH_TO/rewind_taperecorder/
+
+then run the docker
+
+`$ docker run --rm -it -p [PORT]:80 -v $PWD:/var/www/html [TAG]`
+
 Then, open the browser at this address:
 ```
-http://localhost/PATH_TO_TAPERECORDER/taperecorder/taperecorder.php:PORT
+http://localhost:PORT/taperecorder/taperecorder.php
 ```
 Where:
-* "PATH_TO_TAPERECORDER": is the path from the web server root folder, to the "taperecorder" folder.
-* "PORT": is the port used by the web server you use, by default is ``80``.
+* [PORT]: is the port used of the web server you specified.
+* [TAG]: is the image tag name you specified before.
 
 
 ## Credits
